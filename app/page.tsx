@@ -48,6 +48,15 @@ export default function Portfolio() {
     setFormData({ name: "", email: "", message: "" })
   }
 
+  const downloadResume = () => {
+    const link = document.createElement('a')
+    link.href = '/ShreeHariniSResume.pdf'
+    link.download = 'ShreeHariniSResume.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   const skills = ["Python", "Java", "C", "React", "Next.js", "HTML", "CSS", "JavaScript", "AWS", "Git", "MySQL"]
 
   const projects = [
@@ -171,6 +180,7 @@ export default function Portfolio() {
               size="lg"
               variant="outline"
               className="border-blue-300 text-blue-300 hover:bg-blue-300 hover:text-slate-800"
+              onClick={downloadResume}
             >
               <Download className="mr-2 h-4 w-4" />
               Download Resume
